@@ -12,6 +12,7 @@ fetch(import.meta.env.BASE_URL + "config.json")
     window.config = config
     // or use [Vue Global Config][1]
     app.config.globalProperties.config = config
+    // or use provide
     app.provide('foo2','bar2')
     // FINALLY, mount the app
     app.mount("#app")

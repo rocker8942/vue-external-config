@@ -3,9 +3,11 @@ import { inject } from 'vue'
 
 export default {
 
+  // Inject Option #1. inject global variable that's provided in main.js
   inject: ['foo2'],
 
   setup() {
+    // Inject Option #2. inject global variable that's provided in main.js
     const injectedInSetup = inject('foo2')
     return {
       injectedInSetup
@@ -14,9 +16,16 @@ export default {
 
   data() {
     console.log("in data ---------- ");
+    // Usage Option #1.  use window.config global variable
     console.log("window.config: " + window.config.foo);
+
+    // Usage Option #2. use this.config to access global variable assinged in main.js
     console.log("app.config.globalProperties.config: " + this.config.foo);
+
+    // Usage Option #3. use variable from Inject Option #1
     console.log("injected: " + this.foo2);
+
+    // Usage Option #4. use variable from Inject Option #2
     console.log("injected in Setup: " + this.injectedInSetup);
 
     return {
